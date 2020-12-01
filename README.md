@@ -17,7 +17,7 @@ All my Advent of Code repos:
 
 
 
-Task  | Solution                   | Comment
----   | ---                        | ---
-Day 1 | [day01.nim](nim/day01.nim) | no comment
+Task                                                        | Solution                   | Comment
+---                                                         | ---                        | ---
+[Day 1: Report Repair](https://adventofcode.com/2020/day/1) | [day01.nim](nim/day01.nim) | Small check `elif s[i] + s[j] < 2020:` makes the whole program ~4x faster.
 
