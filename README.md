@@ -22,4 +22,5 @@ Task                                                              | Solution    
 [Day 1: Report Repair](https://adventofcode.com/2020/day/1)       | [day01.nim](nim/day01.nim) | Small check `elif s[i] + s[j] < 2020:` makes the whole program ~4x faster.
 [Day 2: Password Philosophy](https://adventofcode.com/2020/day/2) | [day02.nim](nim/day02.nim) | `scanf` useful as always.
 [Day 3: Toboggan Trajectory](https://adventofcode.com/2020/day/3) | [day03.nim](nim/day03.nim) | Keeping it below 20 lines :)
+[Day 4: Passport Processing](https://adventofcode.com/2020/day/4) | [day04.nim](nim/day04.nim) | Had a nasty early morning bug with `if not v.len == 9`. Argh.
 
