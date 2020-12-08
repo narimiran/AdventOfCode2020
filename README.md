@@ -26,4 +26,5 @@ Task                                                              | Solution    
 [Day 5: Binary Boarding](https://adventofcode.com/2020/day/5)     | [day05.nim](nim/day05.nim) | Traversing a sorted list is more eficient than looking for every number in unsorted one.
 [Day 6: Custom Customs](https://adventofcode.com/2020/day/6)      | [day06.nim](nim/day06.nim) | Classic AoC-use-sets tasks.
 [Day 7: Handy Haversacks](https://adventofcode.com/2020/day/7)    | [day07.nim](nim/day07.nim) | Babushka bag = Bagushka.
+[Day 8: Handheld Halting](https://adventofcode.com/2020/day/8)    | [day08.nim](nim/day08.nim) | Faster than it looks.
 
