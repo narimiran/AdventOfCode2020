@@ -1,6 +1,6 @@
-import strutils
+import aoc, strutils
 
-proc solve(path: string): (int, int) =
+proc solve(path: string): IntSolutions =
   for group in (readFile path).strip.split("\n\n"):
     var any: set[char]
     var all = {'a'..'z'}
@@ -9,7 +9,7 @@ proc solve(path: string): (int, int) =
       for c in person: answers.incl c
       any = any + answers
       all = all * answers
-    result[0] += any.card
-    result[1] += all.card
+    result.first += any.card
+    result.second += all.card
 
 echo solve "inputs/06.txt"
