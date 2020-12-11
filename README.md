@@ -29,3 +29,4 @@ Task                                                              | Solution    
 [Day 8: Handheld Halting](https://adventofcode.com/2020/day/8)    | [day08.nim](nim/day08.nim) | Faster than it looks.
 [Day 9: Encoding Error](https://adventofcode.com/2020/day/9)      | [day09.nim](nim/day09.nim) | Sliding slice sum.
 [Day 10: Adapter Array](https://adventofcode.com/2020/day/10)     | [day10.nim](nim/day10.nim) | `CountTable` to the rescue.
+[Day 11: Seating System](https://adventofcode.com/2020/day/11)    | [day11.nim](nim/day11.nim) | The ugliest and the slowest solution so far.
