@@ -15,6 +15,17 @@ type
 func `$`*[T, V](x: Solutions[T, V]): string =
   result = &"{x.first}\n{x.second}"
 
+func `+`*(a, b: Point): Point =
+  (a.x + b.x, a.y + b.y)
+
+func `+=`*(a: var Point, b: Point) =
+  a.x += b.x
+  a.y += b.y
+
+func manhattan*(p: Point): int =
+  result = abs(p.x) + abs(p.y)
+
+
 proc parseIntSeq*(path: string): seq[int] =
   for line in path.lines:
     result.add parseInt(line)

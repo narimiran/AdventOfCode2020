@@ -30,3 +30,11 @@ Task                                                              | Solution    
 [Day 9: Encoding Error](https://adventofcode.com/2020/day/9)      | [day09.nim](nim/day09.nim) | Sliding slice sum.
 [Day 10: Adapter Array](https://adventofcode.com/2020/day/10)     | [day10.nim](nim/day10.nim) | `CountTable` to the rescue.
 [Day 11: Seating System](https://adventofcode.com/2020/day/11)    | [day11.nim](nim/day11.nim) | The ugliest and the slowest solution so far.
+[Day 12: Rain Risk](https://adventofcode.com/2020/day/12)         | [day12.nim](nim/day12.nim) | Using complex numbers is s[o][1][o][2][o][3][o][4] last Tuesday. No `Complex` this time.
+
+
+
+[1]: https://github.com/narimiran/advent_of_code_2016/blob/master/python/day_01.py)
+[2]: https://github.com/narimiran/advent_of_code_2016/blob/master/python/day_02.py)
+[3]: https://github.com/narimiran/AdventOfCode2017/blob/master/nim/day19.nim)
+[4]: https://github.com/narimiran/AdventOfCode2017/blob/master/python/day22.py)
