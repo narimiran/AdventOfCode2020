@@ -7,7 +7,6 @@ type
     Occup = "#"
     NoSeat
   Seats = seq[seq[Seat]]
-  Point = tuple[x, y: int]
   Visible = seq[Point]
   VisibleGrid = seq[seq[Visible]]
   CountsGrid = seq[seq[int]]
@@ -26,9 +25,8 @@ func neighbour(seats: Seats, x, y, dx, dy: int): Seat =
   else:
     return NoSeat
 
-func getVisibleFromPoint(seats: Seats, x, y: int, adjacent: bool): Visible =
-  let directions = [( 1, 0), ( 1,  1), (0,  1), (-1,  1),
-                    (-1, 0), (-1, -1), (0, -1), ( 1, -1)]
+iterator getVisibleFromPoint(seats: Seats, x, y: int, adjacent: bool): Point =
+  let directions = [(1, 0), (1,  1), (0, 1), (-1, 1)]
   for (dx, dy) in directions:
     var nearby = Floor
     var n = 0
@@ -37,17 +35,20 @@ func getVisibleFromPoint(seats: Seats, x, y: int, adjacent: bool): Visible =
       nearby = seats.neighbour(x, y, n*dx, n*dy)
       if adjacent: break
     if nearby in {Empty, Occup}:
-      result.add (x+n*dx, y+n*dy)
+      yield (x+n*dx, y+n*dy)
 
 func getAllVisible(seats: Seats, adjacent: bool): VisibleGrid =
   result = createEmptyGrid[Visible](seats.len, seats[0].len)
   for y in 0 ..< seats.len:
     for x in 0 ..< seats[0].len:
       if seats[y][x] in {Empty, Occup}:
-        result[y][x] = seats.getVisibleFromPoint(x, y, adjacent)
+        for (nx, ny) in seats.getVisibleFromPoint(x, y, adjacent):
+          result[y][x].add (nx, ny)
+          result[ny][nx].add (x, y)
 
 func nextGeneration(seats: var Seats, counts: var CountsGrid,
                     visibles: VisibleGrid, part: int): bool =
+  resetGrid counts
   for y in 0 ..< seats.len:
     for x in 0 ..< seats[0].len:
       if seats[y][x] == Occup:
@@ -65,10 +66,9 @@ func nextGeneration(seats: var Seats, counts: var CountsGrid,
 
 func solve(seats: Seats, part: int): int =
   var seats = seats
-  let visibles = getAllVisible(seats, part==1)
+  let visibles = getAllVisible(seats, part==Part1)
   var counts = createEmptyGrid[int](seats.len, seats[0].len)
-  while nextGeneration(seats, counts, visibles, part):
-    resetGrid counts
+  while nextGeneration(seats, counts, visibles, part): discard
   for row in seats:
     for seat in row:
       if seat == Occup:
@@ -77,5 +77,5 @@ func solve(seats: Seats, part: int): int =
 
 let seats = parse "inputs/11.txt"
 
-echo seats.solve 1
-echo seats.solve 2
+echo seats.solve Part1
+echo seats.solve Part2

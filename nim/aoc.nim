@@ -1,10 +1,16 @@
 import strformat, strutils
 
+const
+  Part1* = 1
+  Part2* = 2
+
 type
   Solutions*[T, V] = object
     first*: T
     second*: V
   IntSolutions* = Solutions[int, int]
+  Point* = tuple[x, y: int]
+  Points* = seq[Point]
 
 func `$`*[T, V](x: Solutions[T, V]): string =
   result = &"{x.first}\n{x.second}"
