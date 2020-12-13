@@ -31,6 +31,7 @@ Task                                                              | Solution    
 [Day 10: Adapter Array](https://adventofcode.com/2020/day/10)     | [day10.nim](nim/day10.nim) | `CountTable` to the rescue.
 [Day 11: Seating System](https://adventofcode.com/2020/day/11)    | [day11.nim](nim/day11.nim) | The ugliest and the slowest solution so far.
 [Day 12: Rain Risk](https://adventofcode.com/2020/day/12)         | [day12.nim](nim/day12.nim) | Using complex numbers is s[o][1][o][2][o][3][o][4] last Tuesday. No `Complex` this time.
+[Day 13: Shuttle Search](https://adventofcode.com/2020/day/13)    | [day13.nim](nim/day13.nim) | Yeah yeah, [CRT](https://en.wikipedia.org/wiki/Chinese_remainder_theorem), but it took me way too long to implement it correctly.
 
 
 
