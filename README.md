@@ -32,10 +32,11 @@ Task                                                              | Solution    
 [Day 11: Seating System](https://adventofcode.com/2020/day/11)    | [day11.nim](nim/day11.nim) | The ugliest and the slowest solution so far.
 [Day 12: Rain Risk](https://adventofcode.com/2020/day/12)         | [day12.nim](nim/day12.nim) | Using complex numbers is s[o][1][o][2][o][3][o][4] last Tuesday. No `Complex` this time.
 [Day 13: Shuttle Search](https://adventofcode.com/2020/day/13)    | [day13.nim](nim/day13.nim) | Yeah yeah, [CRT](https://en.wikipedia.org/wiki/Chinese_remainder_theorem), but it took me way too long to implement it correctly.
+[Day 14: Docking Data](https://adventofcode.com/2020/day/14)      | [day14.nim](nim/day14.nim) | Good luck trying to understand what's going on.
 
 
 
-[1]: https://github.com/narimiran/advent_of_code_2016/blob/master/python/day_01.py)
-[2]: https://github.com/narimiran/advent_of_code_2016/blob/master/python/day_02.py)
-[3]: https://github.com/narimiran/AdventOfCode2017/blob/master/nim/day19.nim)
-[4]: https://github.com/narimiran/AdventOfCode2017/blob/master/python/day22.py)
+[1]: https://github.com/narimiran/advent_of_code_2016/blob/master/python/day_01.py
+[2]: https://github.com/narimiran/advent_of_code_2016/blob/master/python/day_02.py
+[3]: https://github.com/narimiran/AdventOfCode2017/blob/master/nim/day19.nim
+[4]: https://github.com/narimiran/AdventOfCode2017/blob/master/python/day22.py
