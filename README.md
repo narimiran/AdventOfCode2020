@@ -34,6 +34,7 @@ Task                                                                    | Soluti
 [Day 13: Shuttle Search](https://adventofcode.com/2020/day/13)          | [day13.nim](nim/day13.nim) | Yeah yeah, [CRT](https://en.wikipedia.org/wiki/Chinese_remainder_theorem), but it took me way too long to implement it correctly.
 [Day 14: Docking Data](https://adventofcode.com/2020/day/14)            | [day14.nim](nim/day14.nim) | Good luck trying to understand what's going on.
 [Day 15: Rambunctious Recitation](https://adventofcode.com/2020/day/15) | [day15.nim](nim/day15.nim) | Boring.
+[Day 16: Ticket Translation](https://adventofcode.com/2020/day/16)      | [day16.nim](nim/day16.nim) | Naming is hard.
 
 
 
