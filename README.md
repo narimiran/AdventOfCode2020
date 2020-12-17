@@ -35,6 +35,7 @@ Task                                                                    | Soluti
 [Day 14: Docking Data](https://adventofcode.com/2020/day/14)            | [day14.nim](nim/day14.nim) | Good luck trying to understand what's going on.
 [Day 15: Rambunctious Recitation](https://adventofcode.com/2020/day/15) | [day15.nim](nim/day15.nim) | Boring.
 [Day 16: Ticket Translation](https://adventofcode.com/2020/day/16)      | [day16.nim](nim/day16.nim) | Naming is hard.
+[Day 17: Conway Cubes](https://adventofcode.com/2020/day/17)            | [day17.nim](nim/day17.nim) | Nobody notices your 9 nested for-loops if you hide them in a template.
 
 
 
