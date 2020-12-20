@@ -23,8 +23,8 @@ Task                                                                    | Python
 [Day 2: Password Philosophy](https://adventofcode.com/2020/day/2)       | [day02.py](python/day02.py) | [day02.nim](nim/day02.nim) | `scanf` useful as always.
 [Day 3: Toboggan Trajectory](https://adventofcode.com/2020/day/3)       | [day03.py](python/day03.py) | [day03.nim](nim/day03.nim) | Keeping it below 20 lines :)
 [Day 4: Passport Processing](https://adventofcode.com/2020/day/4)       | [day04.py](python/day04.py) | [day04.nim](nim/day04.nim) | Had a nasty early morning bug with `if not v.len == 9`. Argh.
-[Day 5: Binary Boarding](https://adventofcode.com/2020/day/5)           |                             | [day05.nim](nim/day05.nim) | Traversing a sorted list is more eficient than looking for every number in unsorted one.
-[Day 6: Custom Customs](https://adventofcode.com/2020/day/6)            |                             | [day06.nim](nim/day06.nim) | Classic AoC-use-sets tasks.
+[Day 5: Binary Boarding](https://adventofcode.com/2020/day/5)           | [day05.py](python/day05.py) | [day05.nim](nim/day05.nim) | Traversing a sorted list is more eficient than looking for every number in unsorted one.
+[Day 6: Custom Customs](https://adventofcode.com/2020/day/6)            | [day06.py](python/day06.py) | [day06.nim](nim/day06.nim) | Classic AoC-use-sets tasks.
 [Day 7: Handy Haversacks](https://adventofcode.com/2020/day/7)          |                             | [day07.nim](nim/day07.nim) | Babushka bag = Bagushka.
 [Day 8: Handheld Halting](https://adventofcode.com/2020/day/8)          |                             | [day08.nim](nim/day08.nim) | Faster than it looks.
 [Day 9: Encoding Error](https://adventofcode.com/2020/day/9)            |                             | [day09.nim](nim/day09.nim) | Sliding slice sum.
