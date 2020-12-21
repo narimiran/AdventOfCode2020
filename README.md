@@ -37,6 +37,7 @@ Task                                                                    | Python
 [Day 16: Ticket Translation](https://adventofcode.com/2020/day/16)      |                             | [day16.nim](nim/day16.nim) | Naming is hard.
 [Day 17: Conway Cubes](https://adventofcode.com/2020/day/17)            |                             | [day17.nim](nim/day17.nim) | Nobody notices your 9 nested for-loops if you hide them in a template.
 [Day 18: Operation Order](https://adventofcode.com/2020/day/18)         |                             | [day18.nim](nim/day18.nim) | Template and streams make this one really elegant.
+[Day 19: Monster Messages](https://adventofcode.com/2020/day/19)        |                             | [day19.nim](nim/day19.nim) | My first experience with `npeg`.
 
 
 
