@@ -33,37 +33,39 @@ func playGame(p1, p2: Deck): int =
   let winner = if p1.len > 0: p1 else: p2
   return winner.score
 
-func playRecursive(p1, p2: Deck, joker: int, subgame = false): (int, int) =
-  if subgame and joker in p1:
-    ## P1 will be winner eventually. Return immediately.
-    return (1, 0)
+func until(d: Deck, x: int): Deck =
+  result = initDeque[int](x)
+  for i in 0 ..< x:
+    result.addLast(d[i])
+
+func max(d: Deque[int]): int =
+  for i in d:
+    result = max(result, i)
+
+func playRecursive(p1, p2: Deck): int =
   var seen: HashSet[int]
   var p1 = p1
   var p2 = p2
   while p1.len > 0 and p2.len > 0:
     if seen.containsOrIncl(p1.score * p2.score):
-      return (1, 0)
+      return 1
     let c1 = p1.popFirst
     let c2 = p2.popFirst
     if c1 > p1.len or c2 > p2.len:
       pickCards(p1, p2, c1 > c2)
     else:
-      let np1 = toSeq(p1)[0..<c1].toDeque
-      let np2 = toSeq(p2)[0..<c2].toDeque
-      let (winner, _) = playRecursive(np1, np2, joker, subgame = true)
+      let np1 = p1.until(c1)
+      let np2 = p2.until(c2)
+      let winner =
+        if max(np1) > max(np2): 1 # P1 always wins if (s)he has the highest card
+        else: playRecursive(np1, np2)
       pickCards(p1, p2, winner == 1)
   if p1.len > 0:
-    return (1, p1.score)
+    return p1.score
   else:
-    return (2, p2.score)
+    return p2.score
 
 
 let (p1, p2) = parse "inputs/22.txt"
 echo playGame(p1, p2)
-
-## Find a "joker": a card with the highest value.
-## If joker is held by Player 1, (s)he is the guaranteed winner of the game.
-## This tremendously speeds up subgames - we don't need to
-## play them as their score is not important.
-let joker = max(concat(p1.toSeq, p2.toSeq))
-echo playRecursive(p1, p2, joker)[1]
+echo playRecursive(p1, p2)
