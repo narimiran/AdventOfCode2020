@@ -41,6 +41,7 @@ Task                                                                    | Python
 [Day 20: Jurassic Jigsaw](https://adventofcode.com/2020/day/20)         |                             |                            |
 [Day 21: Allergen Assessment](https://adventofcode.com/2020/day/21)     |                             | [day21.nim](nim/day21.nim) | Day 16, part 2 vibes.
 [Day 22: Crab Combat](https://adventofcode.com/2020/day/22)             |                             | [day22.nim](nim/day22.nim) | Deque Deck for Crab Combat.
+[Day 23: Crab Cups](https://adventofcode.com/2020/day/23)               |                             | [day23.nim](nim/day23.nim) | No Linked List for Crab Cups: 10x faster and lighter (less memory usage).
 
 
 
