@@ -1,21 +1,25 @@
-import tables, sets, math
+import math
 
 
 type
-  Tile = tuple[p: int, q: int]
+  Tile = int
   Directions = seq[Tile]
-  BlackTiles = CountTable[Tile]
+  TileSet = set[-8888..8888]
 
+const
+  neighbours = [-1, -128, -127, 1, 128, 127]
+  ## Every direction would be a `(p, q)` tuple, which is now
+  ## converted into an `int` via `128*p + q`.
 
 func toAxial(direction: string): Tile =
   case direction
-  of "nw": ( 0, -1)
-  of "w":  (-1,  0)
-  of "sw": (-1,  1)
-  of "se": ( 0,  1)
-  of "e":  ( 1,  0)
-  of "ne": ( 1, -1)
-  else: (0, 0)
+  of "nw": neighbours[0]   # ( 0, -1)
+  of "w":  neighbours[1]   # (-1,  0)
+  of "sw": neighbours[2]   # (-1,  1)
+  of "se": neighbours[3]   # ( 0,  1)
+  of "e":  neighbours[4]   # ( 1,  0)
+  of "ne": neighbours[5]   # ( 1, -1)
+  else: 0
 
 func parseLine(line: string): Directions =
   var i = 0
@@ -33,29 +37,31 @@ proc parse(path: string): seq[Directions] =
     result.add parseLine(line)
 
 
-func `+`(a, b: Tile): Tile = (a.p + b.p, a.q + b.q)
-
-func initialize(directions: seq[Directions]): BlackTiles =
+func initialize(directions: seq[Directions]): TileSet =
   for steps in directions:
     let dest = sum steps
-    result[dest] = 1 - result[dest]
+    if dest in result:
+      result.excl dest
+    else:
+      result.incl dest
 
-func playDay(blacks: BlackTiles): BlackTiles =
-  let neighbours = [(0, -1), (-1, 0), (-1,  1),
-                    (0,  1), ( 1, 0), ( 1, -1)]
-  var seen: HashSet[Tile]
-  for p1 in blacks.keys:
+func playDay(blacks: TileSet): TileSet =
+  var seen: TileSet
+  for p1 in blacks:
     for delta1 in neighbours:
       let p2 = p1 + delta1
-      if seen.containsOrIncl(p2): continue
+      if p2 in seen: continue
+      seen.incl p2
       var count: int
       for delta2 in neighbours:
-        count += blacks[p2+delta2]
-      if (blacks[p2] == 1 and count in {1, 2}) or
-         (blacks[p2] == 0 and count == 2):
-        result[p2] = 1
+        count += ord(p2+delta2 in blacks)
+      if p2 in blacks:
+        if count in {1, 2}:
+          result.incl p2
+      elif count == 2:
+        result.incl p2
 
-func play(seed: BlackTiles): int =
+func play(seed: TileSet): int =
   var blackTiles = seed
   for _ in 1 .. 100:
     blackTiles = playDay(blackTiles)
