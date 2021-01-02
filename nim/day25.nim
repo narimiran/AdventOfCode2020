@@ -1,19 +1,13 @@
-proc loopSize(key: int): int =
+func solve(a, b, m: int): int =
   var subject = 1
-  while true:
-    inc result
-    subject = (7 * subject) mod 20201227
-    if subject == key:
-      break
-
-proc transform(key, loop: int): int =
   result = 1
-  for _ in 1 .. loop:
-    result = (result * key) mod 20201227
+  while subject != a:
+    subject = 7 * subject mod m
+    result = b * result mod m
 
 
 let card = 1526110
 let door = 20175123
+let modulo = 20201227
 
-echo door.transform(card.loopSize)
-
+echo solve(card, door, modulo)
