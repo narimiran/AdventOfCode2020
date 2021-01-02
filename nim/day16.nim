@@ -4,7 +4,7 @@ type
   Ticket = seq[int]
   Tickets = seq[Ticket]
   Rules = set[0..65535] # ugly Nim limitation
-  TicketFields = Table[string, Rules]
+  TicketFields = OrderedTable[string, Rules]
   Information = object
     fields: TicketFields
     myTicket: Ticket
@@ -14,10 +14,10 @@ type
 
 func extractFields(fields: string): TicketFields =
   var min1, max1, min2, max2: int
+  var field: string
   for line in fields.splitlines:
-    let parts = line.split(": ")
-    if parts[1].scanf("$i-$i or $i-$i", min1, max1, min2, max2):
-      result[parts[0]] = {min1..max1, min2..max2}
+    if line.scanf("$+: $i-$i or $i-$i", field, min1, max1, min2, max2):
+      result[field] = {min1..max1, min2..max2}
 
 func extractNumbers(tickets: string): Tickets =
   let lines = tickets.splitLines
@@ -51,7 +51,7 @@ func findPossible(input: Information): TicketFields =
   func extractColumn(tickets: Tickets, column: int): Rules =
     for ticket in tickets:
       result.incl ticket[column]
-  for column in 0 ..< input.validTickets[0].len:
+  for column in 0 ..< input.myTicket.len:
     let colValues = input.validTickets.extractColumn(column)
     for k, vals in input.fields.pairs:
       if colValues <= vals:
@@ -59,11 +59,13 @@ func findPossible(input: Information): TicketFields =
 
 func eliminationProcess(possible: TicketFields): Table[string, int] =
   var possible = possible
-  while result.len != possible.len:
-    for k, vals in possible.mpairs:
-      for seen in result.values: vals.excl seen
-      if vals.card == 1:
-        for v in vals: result[k] = v
+  func ascendingLength(a, b: (string, Rules)): int = a[1].card - b[1].card
+  possible.sort(ascendingLength)
+  var seen: Rules
+  for k, vals in possible.pairs:
+    let remaining = vals - seen
+    for v in remaining: result[k] = v
+    seen.incl remaining
 
 func part2(input: Information): int =
   result = 1
