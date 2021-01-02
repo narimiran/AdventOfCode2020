@@ -73,7 +73,7 @@ The reported results are the average of 20 runs.
 08     1.06 ms
 09     1.01 ms
 10     0.72 ms
-11    35.03 ms
+11    26.66 ms
 12     0.93 ms
 13     0.63 ms
 14    11.57 ms
@@ -89,5 +89,5 @@ The reported results are the average of 20 runs.
 24    16.32 ms
 25    12.74 ms
 --------------
-        965 ms
+        957 ms
 ```

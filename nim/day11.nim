@@ -6,10 +6,11 @@ type
     Empty = "L"
     Occup = "#"
     NoSeat
+  Point = tuple[x, y: int8]
   Seats = seq[seq[Seat]]
   Visible = seq[Point]
   VisibleGrid = seq[seq[Visible]]
-  CountsGrid = seq[seq[int]]
+  CountsGrid = seq[seq[int8]]
 
 proc parse(path: string): Seats =
   for line in path.lines:
@@ -24,11 +25,11 @@ func neighbour(seats: Seats, nx, ny: int): Seat =
   else:
     return NoSeat
 
-iterator getVisibleFromPoint(seats: Seats, x, y: int, adjacent: bool): Point =
-  let directions = [(1, 0), (1,  1), (0, 1), (-1, 1)]
+iterator getVisibleFromPoint(seats: Seats, x, y: int8, adjacent: bool): Point =
+  let directions = [(1'i8, 0'i8), (1'i8,  1'i8), (0'i8, 1'i8), (-1'i8, 1'i8)]
   for (dx, dy) in directions:
     var nearby = Floor
-    var n = 0
+    var n = 0'i8
     while nearby == Floor:
       inc n
       nearby = seats.neighbour(x+n*dx, y+n*dy)
@@ -38,8 +39,8 @@ iterator getVisibleFromPoint(seats: Seats, x, y: int, adjacent: bool): Point =
 
 func getAllVisible(seats: Seats, adjacent: bool): VisibleGrid =
   result = createEmptyGrid[Visible](seats.len, seats[0].len)
-  for y in 0 ..< seats.len:
-    for x in 0 ..< seats[0].len:
+  for y in 0'i8 ..< seats.len.int8:
+    for x in 0'i8 ..< seats[0].len.int8:
       if seats[y][x] in {Empty, Occup}:
         for (nx, ny) in seats.getVisibleFromPoint(x, y, adjacent):
           result[y][x].add (nx, ny)
@@ -66,7 +67,7 @@ func nextGeneration(seats: var Seats, counts: var CountsGrid,
 func solve(seats: Seats, part: int): int =
   var seats = seats
   let visibles = getAllVisible(seats, part==Part1)
-  var counts = createEmptyGrid[int](seats.len, seats[0].len)
+  var counts = createEmptyGrid[int8](seats.len, seats[0].len)
   while nextGeneration(seats, counts, visibles, part): discard
   for row in seats:
     for seat in row:
