@@ -17,10 +17,9 @@ proc parse(path: string): Seats =
     for c in line:
       result[^1].add parseEnum[Seat]($c)
 
-func neighbour(seats: Seats, x, y, dx, dy: int): Seat =
-  let (nx, ny) = (x + dx, y + dy)
+func neighbour(seats: Seats, nx, ny: int): Seat =
   if ny >= 0 and ny < seats.len and
-     nx >= 0 and nx < seats[ny].len:
+     nx >= 0 and nx < seats[0].len:
     return seats[ny][nx]
   else:
     return NoSeat
@@ -32,7 +31,7 @@ iterator getVisibleFromPoint(seats: Seats, x, y: int, adjacent: bool): Point =
     var n = 0
     while nearby == Floor:
       inc n
-      nearby = seats.neighbour(x, y, n*dx, n*dy)
+      nearby = seats.neighbour(x+n*dx, y+n*dy)
       if adjacent: break
     if nearby in {Empty, Occup}:
       yield (x+n*dx, y+n*dy)

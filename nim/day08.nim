@@ -7,7 +7,7 @@ type
 
 proc parse(path: string): Instructions =
   for line in path.lines:
-    result.add (parseEnum[Instruction](line[0..2]), parseInt(line[4..line.high]))
+    result.add (parseEnum[Instruction](line[0..2]), parseInt(line[4..^1]))
 
 func part1(input: Instructions): (bool, int) =
   var seen: set[int16]

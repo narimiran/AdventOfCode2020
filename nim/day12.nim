@@ -6,7 +6,7 @@ type
 
 proc parse(path: string): Instructions =
   for line in path.lines:
-    result.add (line[0], parseInt(line[1..line.high]))
+    result.add (line[0], parseInt(line[1..^1]))
 
 func solve(instructions: Instructions, part: int): int =
   var dir, pos = new Point

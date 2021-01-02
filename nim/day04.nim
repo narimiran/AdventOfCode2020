@@ -1,4 +1,4 @@
-import strutils
+import aoc, strutils
 
 func isValid1(passport: string): bool =
   for r in ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]:
@@ -7,7 +7,7 @@ func isValid1(passport: string): bool =
 
 func isValid2(passport: string): bool =
   for field in passport.splitWhitespace:
-    let v = field[4..field.high] # ':' is always at index 3
+    let v = field[4..^1] # ':' is always at index 3
     case field[0..2]
     of "byr":
       if parseInt(v) notin 1920..2002: return false
@@ -34,12 +34,12 @@ func isValid2(passport: string): bool =
         if l notin {'0'..'9'}: return false
   return true
 
-proc solve(path: string): (int, int) =
+proc solve(path: string): IntSolutions =
   let passports = readFile path
   for passport in passports.split("\n\n"):
     if passport.isValid1:
-      inc result[0]
+      inc result.first
       if passport.isValid2:
-        inc result[1]
+        inc result.second
 
 echo solve "inputs/04.txt"

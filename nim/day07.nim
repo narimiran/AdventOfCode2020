@@ -29,7 +29,6 @@ proc part1(bagushka: Bagushka, bag: string): int =
   result = seen.card
 
 func part2(bagushka: Bagushka, current: string): int =
-  if bagushka[current].len == 0: return 0
   for bag in bagushka[current]:
     result += bag.amount * (1 + part2(bagushka, bag.color))
 

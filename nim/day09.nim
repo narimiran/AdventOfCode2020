@@ -1,10 +1,6 @@
-import strutils
+import aoc
 
 const PreambleLength = 25
-
-proc parseIntSeq(path: string): seq[int] =
-  for line in path.lines:
-    result.add parseInt(line)
 
 func isSum(input: seq[int], i: int): bool =
   for a in i-PreambleLength ..< i:
