@@ -25,23 +25,22 @@ func playRound(next: var seq[int], head: var int, size: int) =
   next[lookingFor] = pickedUp[0]
   head = next[head]
 
-func part1(input: string): string =
-  let size = input.len
-  var next = input.buildQuasiLinkedList size
+func playGame(input: string, size: int): seq[int] =
+  result = input.buildQuasiLinkedList size
   var head = ord(input[0]) - ord('0')
-  for _ in 1 .. 100:
-    playRound(next, head, size)
-  head = 1
-  for _ in 1 ..< size:
+  let rounds = max(10*size, 100)
+  for _ in 1 .. rounds:
+    playRound(result, head, size)
+
+func part1(input: string): string =
+  let next = playGame(input, input.len)
+  var head = 1
+  for _ in 1 ..< input.len:
     head = next[head]
     result.add $head
 
 func part2(input: string): int =
-  let size = 1_000_000
-  var next = input.buildQuasiLinkedList size
-  var head = ord(input[0]) - ord('0')
-  for _ in 1 .. 10*size:
-    playRound(next, head, size)
+  let next = playGame(input, 1_000_000)
   result = next[1] * next[next[1]]
 
 
