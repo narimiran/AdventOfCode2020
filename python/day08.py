@@ -11,7 +11,7 @@ part_1 = (lambda instr, i=0, seen=set(), accum=0:
 
 def change_instruction(instr, i):
     new_instr = instr.copy()
-    new_instr[i] = ('nop', instr[i][1]) if instr[i][0] == 'jmp' else ('jmp', instr[i][1])
+    new_instr[i] = ('nop' if instr[i][0] == 'jmp' else 'jmp', instr[i][1])
     return new_instr
 
 part_2 = lambda instr: next(result for finished, result in (part_1(change_instruction(instr, i))
