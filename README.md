@@ -51,3 +51,43 @@ Task                                                                    | Python
 [2]: https://github.com/narimiran/advent_of_code_2016/blob/master/python/day_02.py
 [3]: https://github.com/narimiran/AdventOfCode2017/blob/master/nim/day19.nim
 [4]: https://github.com/narimiran/AdventOfCode2017/blob/master/python/day22.py
+
+
+
+## Run times
+
+* Nim version 1.5.1 (devel)
+* compiled with `-d:danger --gc:arc`
+* CPU: AMD Ryzen 3700x @ 3.6 GHz (Linux 5.4)
+
+The reported results are the average of 20 runs.
+
+```
+01     0.72 ms
+02     0.82 ms
+03     0.63 ms
+04     1.23 ms
+05     0.80 ms
+06     0.96 ms
+07     1.89 ms
+08     1.06 ms
+09     1.01 ms
+10     0.72 ms
+11    35.03 ms
+12     0.93 ms
+13     0.63 ms
+14    11.57 ms
+15   583.13 ms
+16     4.62 ms
+17    64.36 ms
+18     1.48 ms
+19     0.62 ms
+20    12.16 ms
+21     1.86 ms
+22     1.06 ms
+23   208.55 ms
+24    16.32 ms
+25    12.74 ms
+--------------
+        965 ms
+```
