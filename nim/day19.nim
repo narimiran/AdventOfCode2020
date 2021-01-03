@@ -49,13 +49,12 @@ message o───┬─[Alpha]─┬──»─'\n'──o
 ]##
   var rules: Rules
   var currentRule: Rule
-  var messages: seq[string]
+  var messages: Messages
 
   let parser = peg input:
     input <- +rule * '\n' * +message
     rule <- >+Digit * ": " * (letter | choice | list) * '\n':
       rules[parseInt($1)] = currentRule
-      currentRule.reset
     letter <- '"' * >Alpha * '"':
       currentRule = Rule(kind: rkLetter, letter: ($1)[0])
     choice <- >list * " | " * >list:
@@ -67,7 +66,7 @@ message o───┬─[Alpha]─┬──»─'\n'──o
     message <- >+Alpha * '\n':
       messages.add $1
 
-  assert parser.matchFile(path).ok
+  discard parser.matchFile(path)
   return (rules, messages)
 
 
