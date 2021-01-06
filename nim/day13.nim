@@ -1,4 +1,4 @@
-import strutils, math
+import strutils
 
 proc parse(path: string): (int, seq[(int, int)]) =
   let file = open path
@@ -19,10 +19,9 @@ func part1(timestamp: int, buses: seq[(int, int)]): int =
 func part2(buses: seq[(int, int)]): int =
   var prime = 1
   for (i, bus) in buses:
-    let delay = floorMod(bus-i, bus)
     let newPrime = prime * bus
     for n in countup(result, newPrime, prime):
-      if n mod bus == delay:
+      if (n+i) mod bus == 0:
         result = n
         prime = newPrime
         break

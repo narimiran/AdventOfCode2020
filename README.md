@@ -31,7 +31,7 @@ Task                                                                    | Python
 [Day 10: Adapter Array](https://adventofcode.com/2020/day/10)           | [day10.py](python/day10.py) | [day10.nim](nim/day10.nim) | `CountTable` to the rescue.
 [Day 11: Seating System](https://adventofcode.com/2020/day/11)          |                             | [day11.nim](nim/day11.nim) | The ugliest and the slowest solution so far.
 [Day 12: Rain Risk](https://adventofcode.com/2020/day/12)               | [day12.py](python/day12.py) | [day12.nim](nim/day12.nim) | Using complex numbers is s[o][1][o][2][o][3][o][4] last Tuesday. No `Complex` this time.
-[Day 13: Shuttle Search](https://adventofcode.com/2020/day/13)          |                             | [day13.nim](nim/day13.nim) | Yeah yeah, [CRT](https://en.wikipedia.org/wiki/Chinese_remainder_theorem), but it took me way too long to implement it correctly.
+[Day 13: Shuttle Search](https://adventofcode.com/2020/day/13)          | [day13.py](python/day13.py) | [day13.nim](nim/day13.nim) | Yeah yeah, [CRT](https://en.wikipedia.org/wiki/Chinese_remainder_theorem), but it took me way too long to implement it correctly.
 [Day 14: Docking Data](https://adventofcode.com/2020/day/14)            |                             | [day14.nim](nim/day14.nim) | Good luck trying to understand what's going on.
 [Day 15: Rambunctious Recitation](https://adventofcode.com/2020/day/15) |                             | [day15.nim](nim/day15.nim) | Boring.
 [Day 16: Ticket Translation](https://adventofcode.com/2020/day/16)      |                             | [day16.nim](nim/day16.nim) | Naming is hard.
