@@ -6,12 +6,13 @@ All my Advent of Code repos:
 * [AoC 2016 in Python, Clojure (+ visualizations)](https://github.com/narimiran/advent_of_code_2016)
 * [AoC 2017 in Nim, OCaml, Python](https://github.com/narimiran/AdventOfCode2017)
 * [AoC 2018 in Nim, Python, Racket](https://github.com/narimiran/AdventOfCode2018)
-* [AoC 2019 in OCaml, Python](https://github.com/narimiran/AdventOfCode2019)
+* [AoC 2019 in OCaml, Python, Clojure](https://github.com/narimiran/AdventOfCode2019)
 * [AoC 2020 in Nim, one liner-y Python, Racket](https://github.com/narimiran/AdventOfCode2020) (this repo)
 * [AoC 2021 in Python, Racket](https://github.com/narimiran/AdventOfCode2021)
 * [AoC 2022 in Python, Clojure](https://github.com/narimiran/AdventOfCode2022)
 * [AoC 2023 in Clojure](https://github.com/narimiran/AdventOfCode2023)
-* [AoC 2024 in Clojure (Clerk notebooks)](https://github.com/narimiran/aoc2024)
+* [AoC 2024 in Clojure (Clerk notebooks), Python, Elixir](https://github.com/narimiran/aoc2024)
+* [AoC 2025 in Clojure (Clerk notebooks)](https://github.com/narimiran/aoc2025)
 
 
 
